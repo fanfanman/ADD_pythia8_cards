@@ -2,7 +2,7 @@
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
-from Configuration.Generator.Pythia8CUEP8M1Settings_cfi import *
+from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *
 
 generator = cms.EDFilter("Pythia8GeneratorFilter",
     maxEventsToPrint = cms.untracked.int32(1),
@@ -12,7 +12,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
     comEnergy = cms.double(13000.),
     PythiaParameters = cms.PSet(
         pythia8CommonSettingsBlock,
-        pythia8CUEP8M1SettingsBlock,
+        pythia8CP5SettingsBlock,
         processParameters = cms.vstring(
             'ExtraDimensionsLED:LambdaT = 10000',
             'ExtraDimensionsLED:ffbar2llbar = on',
@@ -23,7 +23,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
             'PhaseSpace:mHatMax = -1',
         ),
         parameterSets = cms.vstring('pythia8CommonSettings',
-                                    'pythia8CUEP8M1Settings',
+                                    'pythia8CP5Settings',
                                     'processParameters',
                                     )
     )
